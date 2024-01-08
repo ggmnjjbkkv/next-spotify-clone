@@ -6,6 +6,7 @@ import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import Box from './Box';
 import SideBarItem from './SideBarItem';
+import Library from './Library';
 
 interface SideBarProps {
   children: React.ReactNode;
@@ -34,7 +35,7 @@ const SideBar: React.FC<SideBarProps> = ({
 
   return (
     <div className='flex h-full'>
-      <div className="
+      <div className='
       hidden
       md:flex
       flex-col
@@ -43,7 +44,7 @@ const SideBar: React.FC<SideBarProps> = ({
       h-full
       w-[300px]
       p-2
-      ">
+      '>
         <Box>
           <div className='
           flex
@@ -60,10 +61,13 @@ const SideBar: React.FC<SideBarProps> = ({
             ))}
           </div>
         </Box>
-        <Box className="overflow-y-auto h-full">
-          Song Libary
+        <Box className='overflow-y-auto h-screen'>
+          <Library />
         </Box>
       </div>
+      <main className='h-full flex-1 overflow-y-auto py-2'>
+        {children}
+      </main>
     </div>
   );
 }

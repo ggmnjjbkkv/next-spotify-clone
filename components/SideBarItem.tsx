@@ -11,13 +11,13 @@ interface SideBarItemProps {
 }
 
 const SideBarItem: React.FC<SideBarItemProps> = ({
-  icon,
+  icon: Icon,
   label,
   active,
   href
 }) => {
   return (
-    <div>
+     <div>
       <Link
       href={href}
       className={twMerge(`
@@ -38,7 +38,8 @@ const SideBarItem: React.FC<SideBarItemProps> = ({
       active && "text-white"
       )}
       > 
-      Sidebar Item     
+      <Icon size={26} />
+      <p className='truncate w-full'>{label}</p>    
       </Link>
     </div>
   );
