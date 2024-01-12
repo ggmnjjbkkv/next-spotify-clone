@@ -12,7 +12,7 @@ export default async function Home() {
     <div className='
     bg-neutral-900
     rounded-lg
-    h-screen
+    h-full
     w-full
     overflow-hidden
     overflow-y-auto

@@ -75,4 +75,4 @@ const ListItems: React.FC<ListItemsProps> = ({
   )
 }
 
-export default ListItems
+export default ListItems;
