@@ -13,6 +13,8 @@ import { useUser } from '@/hooks/useUser';
 import { FaUserAlt } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import usePlayer from '@/hooks/usePlayer';
+import { IoAdd } from "react-icons/io5";
+import useUploadModal from '@/hooks/useUploadModal';
 
 
 interface HeaderProps {
@@ -26,6 +28,7 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const player = usePlayer();
   const authModal = useAuthModal();
+  const uploadModal = useUploadModal();
   const router = useRouter();
 
   const supabaseClient = useSupabaseClient();
@@ -99,7 +102,9 @@ const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
         <div className='flex md:hidden gap-x-2 items-center'>
-          <button className='
+          <button
+          onClick={() => router.push('/')} 
+          className='
           rounded-full
           p-2
           bg-white
@@ -111,7 +116,9 @@ const Header: React.FC<HeaderProps> = ({
           '>
             <HiHome className='text-black' size={20} />
           </button>
-          <button className='
+          <button 
+          onClick={() => router.push('/search')} 
+          className='
           rounded-full
           p-2
           bg-white
@@ -122,6 +129,21 @@ const Header: React.FC<HeaderProps> = ({
           transition
           '>
             <BiSearch className='text-black' size={20} />
+          </button>
+          <button className='
+          rounded-full
+          p-2
+          bg-white
+          flex
+          items-center
+          justify-content
+          hover:opacity-75
+          transition
+          '>
+            <IoAdd 
+            onClick={uploadModal.onOpen}
+            className='text-black'
+            size={20} />
           </button>
         </div>
         <div className='
