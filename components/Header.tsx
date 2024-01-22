@@ -44,7 +44,16 @@ const Header: React.FC<HeaderProps> = ({
     } else {
       toast.success('Logged out')
     }
-  }
+  };
+
+  const onOpen = () => {
+    if (!user) {
+      return authModal.onOpen();
+    } else
+
+    return uploadModal.onOpen();
+    
+  };
 
   return (
     <div className={twMerge(`
@@ -141,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({
           transition
           '>
             <IoAdd 
-            onClick={uploadModal.onOpen}
+            onClick={onOpen}
             className='text-black'
             size={20} />
           </button>
@@ -200,4 +209,4 @@ const Header: React.FC<HeaderProps> = ({
   )
 }
 
-export default Header
+export default Header;
